@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: keycloak
+    env: docker
+    plan: free
+    healthCheckPath: /health/ready
+    envVars:
+      - key: KC_DB
+        value: postgres
+      - key: KC_DB_URL
+        value: jdbc:postgresql://<TON_HOST_POSTGRES>:5432/<TON_NOM_BD>
+      - key: KC_DB_USERNAME
+        value: <TON_UTILISATEUR>
+      - key: KC_DB_PASSWORD
+        value: <TON_MDP>
+      - key: KC_HOSTNAME
+        value: ton-domaine-keycloak.onrender.com
