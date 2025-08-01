@@ -1,12 +1,17 @@
-FROM quay.io/keycloak/keycloak:24.0.4
+FROM quay.io/keycloak/keycloak:24.0.3
 
-ENV KC_HEALTH_ENABLED=true
+ENV KC_DB=postgres
+ENV KC_DB_URL=jdbc:postgresql://dpg-d21qnfvgi27c73e8un9g-a/pedagogie_db7
+ENV KC_DB_USERNAME=pedagogie_db7_user
+ENV KC_DB_PASSWORD=XfmWDdbkiXcBQhtbX8hQxDxfTQIXBtyD
 
-# Active le mode "production"
-ENV KC_FEATURES=token-exchange,admin2
-ENV KEYCLOAK_ADMIN=admin
-ENV KEYCLOAK_ADMIN_PASSWORD=admin
+# Pour la production : mode non développement
+ENV KC_HOSTNAME=ton-domaine-keycloak.onrender.com
+ENV KC_PROXY=edge
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
+# Mode production (non-dev)
+RUN /opt/keycloak/bin/kc.sh build
 
-CMD ["start", "--optimized"]
+EXPOSE 8080
+
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start"]

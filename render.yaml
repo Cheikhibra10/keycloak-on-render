@@ -3,15 +3,17 @@ services:
     name: keycloak
     env: docker
     plan: free
-    healthCheckPath: /health/ready
+    region: frankfurt
+    branch: main
+    dockerfilePath: Dockerfile
     envVars:
-      - key: KC_DB
-        value: postgres
       - key: KC_DB_URL
-        value: jdbc:postgresql://<TON_HOST_POSTGRES>:5432/<TON_NOM_BD>
+        value: jdbc:postgresql://dpg-d21qnfvgi27c73e8un9g-a/pedagogie_db7
       - key: KC_DB_USERNAME
-        value: <TON_UTILISATEUR>
+        value: pedagogie_db7_user
       - key: KC_DB_PASSWORD
-        value: <TON_MDP>
+        value: XfmWDdbkiXcBQhtbX8hQxDxfTQIXBtyD
       - key: KC_HOSTNAME
         value: ton-domaine-keycloak.onrender.com
+      - key: KC_PROXY
+        value: edge
