@@ -13,11 +13,8 @@ services:
         value: pedagogie_db7_user
       - key: KC_DB_PASSWORD
         value: XfmWDdbkiXcBQhtbX8hQxDxfTQIXBtyD
-      - key: KC_HOSTNAME
-        value: ton-domaine-keycloak.onrender.com
-      - key: KC_PROXY
-        value: edge
       - key: KEYCLOAK_ADMIN
         value: admin
       - key: KEYCLOAK_ADMIN_PASSWORD
         value: admin123
+    healthCheckPath: /

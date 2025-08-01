@@ -14,6 +14,5 @@ ENV KC_PROXY=edge
 # IMPORTANT : build en mode production
 RUN /opt/keycloak/bin/kc.sh build
 
-EXPOSE 8080
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--http-enabled=true", "--http-port=8080", "--hostname-strict=false", "--hostname-strict-https=false"]
