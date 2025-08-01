@@ -5,14 +5,13 @@ ENV KC_DB_URL=jdbc:postgresql://dpg-d21qnfvgi27c73e8un9g-a/pedagogie_db7
 ENV KC_DB_USERNAME=pedagogie_db7_user
 ENV KC_DB_PASSWORD=XfmWDdbkiXcBQhtbX8hQxDxfTQIXBtyD
 
-# Pour la production : mode non développement
-ENV KC_HOSTNAME=ton-domaine-keycloak.onrender.com
+ENV KC_CACHE=local
+ENV KC_HOSTNAME=keycloak-on-render-lh67.onrender.com
 ENV KC_PROXY=edge
 
-ENV KC_CACHE=local
-# Mode production (non-dev)
+# IMPORTANT : build en mode production
 RUN /opt/keycloak/bin/kc.sh build
 
 EXPOSE 8080
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized"]

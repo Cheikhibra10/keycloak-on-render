@@ -7,6 +7,8 @@ services:
     branch: main
     dockerfilePath: Dockerfile
     envVars:
+      - key: KC_DB
+        value: postgres
       - key: KC_DB_URL
         value: jdbc:postgresql://dpg-d21qnfvgi27c73e8un9g-a/pedagogie_db7
       - key: KC_DB_USERNAME
@@ -14,6 +16,6 @@ services:
       - key: KC_DB_PASSWORD
         value: XfmWDdbkiXcBQhtbX8hQxDxfTQIXBtyD
       - key: KC_HOSTNAME
-        value: ton-domaine-keycloak.onrender.com
+        value: keycloak-on-render-lh67.onrender.com
       - key: KC_PROXY
         value: edge
