@@ -9,6 +9,7 @@ ENV KC_DB_PASSWORD=XfmWDdbkiXcBQhtbX8hQxDxfTQIXBtyD
 ENV KC_HOSTNAME=ton-domaine-keycloak.onrender.com
 ENV KC_PROXY=edge
 
+ENV KC_CACHE=local
 # Mode production (non-dev)
 RUN /opt/keycloak/bin/kc.sh build
 
